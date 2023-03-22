@@ -15,7 +15,7 @@ function App() {
   function handleClick() {
     console.log("I was clicked")
     // take functions below testDesc2 
-    // magicStuff
+    // return magicStuff(textBoxInput)
   }
 
   // this code was pulled from : https://github.com/richwarner/aa-bundler-test/blob/main/test/AATester.ts
@@ -34,9 +34,10 @@ function App() {
   const testDesc2 = "should make a simple contract call using account abstraction";
   // this test needs to be replaced by a function that can be called by handleClick
   //it("should make a simple contract call using account abstraction", async function () {
-  const magicStuff = async function () {
+  const magicStuff = async function (textboxInput) {
     console.log('\n     > TEST: Running "' + testDesc2 + '"...');
     // the button triggered by handleClick needs to send an argument:
+    // buttonArgument = textBoxInput
     // const parameter = ethers.utils.toUtf8Bytes(buttonArgument);
     const parameter = ethers.utils.toUtf8Bytes("Test 2");
     const userOp = await simpleAccountApi.createSignedUserOp({
