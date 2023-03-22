@@ -74,7 +74,10 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <button onClick={handleClick}>Click Me</button>
+        <form>
+          <input name="" placeholder="dummy"></input>  {/* this text field needs to send an argument to handleClick */}
+          <button onClick={handleClick}>Click Me</button>
+        </form>
         <a
           className="App-link"
           href="https://reactjs.org"
