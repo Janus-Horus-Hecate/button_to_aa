@@ -34,6 +34,7 @@ function App() {
   const testDesc2 = "should make a simple contract call using account abstraction";
   // this test needs to be replaced by a function that can be called by handleClick
   //it("should make a simple contract call using account abstraction", async function () {
+  /// textboxInput should be isauthenticated ? 1 : 0
   const magicStuff = async function (textboxInput) {
     console.log('\n     > TEST: Running "' + testDesc2 + '"...');
     // the button triggered by handleClick needs to send an argument:
