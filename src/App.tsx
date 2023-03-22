@@ -14,7 +14,8 @@ function App() {
 
   function handleClick() {
     console.log("I was clicked")
-    // take functions below testDesc2
+    // take functions below testDesc2 
+    // magicStuff
   }
 
   // this code was pulled from : https://github.com/richwarner/aa-bundler-test/blob/main/test/AATester.ts
@@ -32,7 +33,8 @@ function App() {
   // Run a simple test with account abstraction
   const testDesc2 = "should make a simple contract call using account abstraction";
   // this test needs to be replaced by a function that can be called by handleClick
-  it("should make a simple contract call using account abstraction", async function () {
+  //it("should make a simple contract call using account abstraction", async function () {
+  const magicStuff = async function () {
     console.log('\n     > TEST: Running "' + testDesc2 + '"...');
     // the button triggered by handleClick needs to send an argument:
     // const parameter = ethers.utils.toUtf8Bytes(buttonArgument);
@@ -49,7 +51,8 @@ function App() {
     const txHash = await simpleAccountApi.getUserOpReceipt(userOpHash);
     console.log(`       Transaction hash: ${txHash}`);
     await expect(txHash).to.emit(contract, "ParameterEmitted").withArgs(parameter);
-  });
+  };
+  // });
 
   // this code was pulled from : https://github.com/richwarner/aa-bundler-test/blob/main/test/AATester.ts
   // Utility function for gas
