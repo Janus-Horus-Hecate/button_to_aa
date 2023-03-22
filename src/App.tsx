@@ -32,6 +32,8 @@ function App() {
   const testDesc2 = "should make a simple contract call using account abstraction";
   it("should make a simple contract call using account abstraction", async function () {
     console.log('\n     > TEST: Running "' + testDesc2 + '"...');
+    // the button triggered by handleClick needs to send an argument:
+    // const parameter = ethers.utils.toUtf8Bytes(buttonArgument);
     const parameter = ethers.utils.toUtf8Bytes("Test 2");
     const userOp = await simpleAccountApi.createSignedUserOp({
       target: contract.address,
