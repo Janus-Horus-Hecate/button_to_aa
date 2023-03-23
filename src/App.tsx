@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { ethers } from 'ethers';
+//import { ethers } from 'ethers';
+import { ethers } from 'hardhat';
 import { BigNumberish, Signer } from "ethers";
 import { SimpleEventEmitter } from "../typechain-types";  // where to get this file???
 //import { Network } from "ethers/providers";
@@ -17,8 +18,29 @@ function App() {
     // take functions below testDesc2 
     // return magicStuff(textBoxInput)
   }
-
+  // model off of https://www.youtube.com/watch?v=QS6Y0ezhyCs (Simple Calculator Using JavaScript, HTML, CSS)
   // this code was pulled from : https://github.com/richwarner/aa-bundler-test/blob/main/test/AATester.ts
+  /// seriously, you need someone who spends a lot of time doing front end to complete the handleClick
+  /// https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form
+  /// or try it with react: https://github.com/AlbertLin0703/Calculate
+
+  // @types/async-eventemitter@^0.2.1 could be used for SimpleEventEmitter ? (see defining types in typescript)
+  // SimpleEventEmitter.sol
+  /*
+  // SPDX-License-Identifier: MIT
+  pragma solidity ^0.8.15;
+  
+  contract SimpleEventEmitter {
+      // Define the event
+      event ParameterEmitted(bytes parameter);
+  
+      // Function to emit the event
+      function emitEvent(bytes memory parameter) public {
+          emit ParameterEmitted(parameter);
+      }
+  }
+  */
+  /// will https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/async-eventemitter/index.d.ts work with the contract???
 
   let signers: any[];
   let signer: Signer;
@@ -45,7 +67,7 @@ function App() {
       target: contract.address,
       value: 0,
       data: contract.interface.encodeFunctionData("emitEvent", [parameter]),
-      ...(await getGasFee(ethers.provider)),
+      ...(await getGasFee(ethers.provider)),  // I am not sure why the property 'provider' does not exist on ethers
     });
     const userOpHash = await bundlerClient.sendUserOpToBundler(userOp);
     console.log(`       UserOperation hash: ${userOpHash}`);
